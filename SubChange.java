@@ -19,17 +19,22 @@ public class SubChange {
         static String sign="";
         static long gap;
     public static void main(String args[]) throws IOException, ParseException{
-               
-        System.out.println("Enter amount of milliseconds you want to change");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Enter path of the *srt,*sub file you want to change");
+        String path=br.readLine();
+        System.out.println("Enter the path and the file name you want to save the file");
+        String dest=br.readLine();
+        
+        System.out.println("Enter amount of milliseconds you want to change");
+        
         gap = (long)(Integer.parseInt(br.readLine()));
         System.out.println("Enter + for bring subtitle to forward, - to backward");
         sign = br.readLine();
         
-        BufferedReader fbr = new BufferedReader(new FileReader("C:\\Users\\Administrator\\Documents\\Movies\\Killing Them Softly 2012 DVDRIP XViD-RESiSTANCE.srt"));
+        BufferedReader fbr = new BufferedReader(new FileReader(path));
         
         
-        File subText = new File("C:\\Users\\Administrator\\Documents\\Movies\\Killing Them Softly 2012 DVDRIP XViD-RESiSTANCE_updated.srt");
+        File subText = new File(dest);
         if(subText.exists()){
         subText.delete();
         subText.createNewFile();
